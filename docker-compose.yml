@@ -1,0 +1,25 @@
+version: '3.1'
+
+services:
+  web:
+    image: 'ashleylai/fe-web:1'
+    container_name: fe-web
+    ports:
+      - '3000:3000'
+    environment:
+      - DB_HOST=mysql
+      - DB_PASSWORD=testtest
+    depends_on:
+      - mysql
+  mysql:
+    image: ashleylai/fe-db:1
+    container_name: fe-db
+    #volumes:
+    #  - /var/lib/mysql:/var/lib/mysql
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=testtest
+
+networks:
+  default:
+    driver: bridge
