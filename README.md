@@ -1,12 +1,30 @@
 # Docker for FE
 
-## What is docker?
+## Cheat Sheet
 
-### What is container?
+```bash
+docker run -d -e MYSQL_ROOT_PASSWORD=testtest ashleylai/fe-db:1
+docker run -d -e DB_PASSWORD=testtest -e DB_HOST=172.17.0.3 -p 3000:3000 ashleylai/fe-web:1
 
-### What is image?
+docker ps -a
+docker stop {container hash or name}
+docker rm {container hash or name}
 
-## docker run
+docker inspect {container hash or name}
+
+docker-compose up -d
+docker-compose down
+```
+
+## Concepts
+
+- docker
+- container
+- image
+- dockerhub
+- docker-compose
+
+## docker commands
 
 ```bash
 docker run --name fe-db --rm -e MYSQL_ROOT_PASSWORD=testtest -d ashleylai/fe-db:1
@@ -21,6 +39,12 @@ docker run --rm -d -p 3000:3000 -e DB_PASSWORD=testtest -e DB_HOST=172.17.0.3 as
 ### What is docker-compose
 
 ### How to run docker-compose
+
+```bash
+docker-compose -d
+
+docker-compose down
+```
 
 ## Build docker image
 
