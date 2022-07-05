@@ -3,26 +3,40 @@
 ## Cheat Sheet
 
 ```bash
+# 確認 docker 是否有安裝好
+docker -v
+
+# 啟動 mysql 資料庫
 docker run -d -e MYSQL_ROOT_PASSWORD=testtest ashleylai/fe-db:1
+# 啟動 express server
 docker run -d -e DB_PASSWORD=testtest -e DB_HOST=172.17.0.3 -p 3000:3000 ashleylai/fe-web:1
 
+# 查看所有的 containers，包括關掉的
 docker ps -a
+# 停止運行一個 docker container
 docker stop {container hash or name}
+# 移除一個 docker container
 docker rm {container hash or name}
-
+# 檢視一個 container 的詳細資訊
 docker inspect {container hash or name}
 
+# 用 docker-compose 啟動一組 containers
 docker-compose up -d
+# 關閉一組 containers
 docker-compose down
 ```
 
 ## Concepts
 
-- docker
-- container
-- image
-- dockerhub
-- docker-compose
+- docker: 一個管理 container 的軟體，讓 container 變得容易使用
+- container: 實質上是把 process 打包起來，「騙他」這個世界裡只有他存在。（也可以是數個 processes)
+- image: 啟動 container 的模板
+- dockerhub: 有點像是 github，但放的是 image
+- docker-compose: 方便用來啟動一組 containers 的工具
+
+重要觀念:
+
+- (一般常說的) container 是一種 linux 技術 -> 非 linux 作業系統，實質上都是先啟動一台 linux vm，然後才在這個 linux vm 上跑 docker。
 
 ## docker commands
 
