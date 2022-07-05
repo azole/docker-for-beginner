@@ -2,13 +2,13 @@ version: '3.1'
 
 services:
   web:
-    image: 'ashleylai/fe-web:1'
+    image: 'ashleylai/fe-web:4'
     container_name: fe-web
     ports:
       - '3000:3000'
     environment:
       - DB_HOST=mysql
-      - DB_PASSWORD=
+      - DB_PASSWORD=testtest
     depends_on:
       - mysql
   mysql:
@@ -18,7 +18,7 @@ services:
     #  - /var/lib/mysql:/var/lib/mysql
     restart: always
     environment:
-      - MYSQL_ROOT_PASSWORD=
+      - MYSQL_ROOT_PASSWORD=testtest
 
 networks:
   default:

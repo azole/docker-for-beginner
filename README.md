@@ -9,7 +9,7 @@ docker -v
 # 啟動 mysql 資料庫
 docker run -d -e MYSQL_ROOT_PASSWORD=testtest ashleylai/fe-db:1
 # 啟動 express server
-docker run -d -e DB_PASSWORD=testtest -e DB_HOST=172.17.0.3 -p 3000:3000 ashleylai/fe-web:1
+docker run -d -e DB_PASSWORD=testtest -e DB_HOST=172.17.0.3 -p 3000:3000 ashleylai/fe-web:4
 
 # 查看所有的 containers，包括關掉的
 docker ps -a
@@ -20,6 +20,8 @@ docker rm {container hash or name}
 # 檢視一個 container 的詳細資訊
 docker inspect {container hash or name}
 
+# 確認 docker-compose 是否有安裝好
+docker-compose -v
 # 用 docker-compose 啟動一組 containers
 docker-compose up -d
 # 關閉一組 containers
@@ -43,7 +45,7 @@ docker-compose down
 ```bash
 docker run --name fe-db --rm -e MYSQL_ROOT_PASSWORD=testtest -d ashleylai/fe-db:1
 
-docker run --rm -d -p 3000:3000 -e DB_PASSWORD=testtest -e DB_HOST=172.17.0.3 ashleylai/fe-web:1
+docker run --rm -d -p 3000:3000 -e DB_PASSWORD=testtest -e DB_HOST=172.17.0.3 ashleylai/fe-web:4
 ```
 
 ![alt text](https://github.com/azole/docker-for-fe/blob/main/docs/images/docker-command.png?raw=true)
